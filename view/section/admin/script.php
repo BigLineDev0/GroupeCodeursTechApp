@@ -24,6 +24,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- ================== VALIDATOR ADD SERVICEREA FORM ================== -->
-<script src="public/js/Validator.js"></script>
-<script src="public/js/serviceRea.js"></script>
-<script src="public/js/confirmDelete.js"></script>
+<script src="public/js/global/Validator.js"></script>
+<script src="public/js/serviceRea/addFrmServiceRea.js"></script>
+<script src="public/js/serviceRea/confirmDelete.js"></script>

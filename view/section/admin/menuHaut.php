@@ -1,3 +1,7 @@
+    <?php
+
+        session_start();
+    ?>
     <div id="header" class="header navbar-default">
        
         <div class="navbar-header">

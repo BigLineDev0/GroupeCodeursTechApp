@@ -24,4 +24,7 @@
 	<link href="public/template/templateAdmin/assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
 	<!-- ================== END DATATABLE STYLE ================== -->
 
+	<!-- ================== STYLE SERVICEREA ================== -->
+	<link rel="stylesheet" href="public/css/serviceRea/style.css">
+
 </head>

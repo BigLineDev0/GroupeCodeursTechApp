@@ -25,5 +25,9 @@
 
 <!-- ================== VALIDATOR ADD SERVICEREA FORM ================== -->
 <script src="public/js/global/Validator.js"></script>
-<script src="public/js/serviceRea/addFrmServiceRea.js"></script>
+<script src="public/js/serviceRea/addFrmValidator.js"></script>
+<script src="public/js/serviceRea/editFrmValidator.js"></script>
 <script src="public/js/serviceRea/confirmDelete.js"></script>
+<script src="public/js/serviceRea/showHide.js"></script>
+<script src="public/js/serviceRea/confirmRestaurer.js"></script>
+<script src="public/js/serviceRea/confirmDeleteDef.js"></script>

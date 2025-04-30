@@ -28,7 +28,7 @@
                     <!-- Password -->
                     <div class="form-group m-b-20">
                         <input type="password" id="password" name="password" class="form-control form-control-lg inverse-mode" placeholder="Mot de passe" required />
-                        <p class="error-message"></p>
+                        <p class="error-message small"></p>
                     </div>
 
                     <!-- Souvenir de moi -->
@@ -37,6 +37,9 @@
                         <label for="remember_checkbox">
                             Se souvenir de moi
                         </label>
+                        <small class="ml-3">
+                            <a href="home" class="text-white fw-bold h6">Retourner vers l'accueil</a>
+                        </small>
                     </div>
 
                     <!-- Se connecter -->

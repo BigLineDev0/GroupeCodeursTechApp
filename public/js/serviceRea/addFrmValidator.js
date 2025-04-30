@@ -1,10 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
 // Récuperation des champs du formulaire
 const nomInput = document.getElementById('nom');
 const descriptionInput = document.getElementById('description');
 const photoInput = document.getElementById('photo');
 const typeInput = document.getElementById('type');
 const frmServiceRea = document.getElementById('formAddServiceRea');
-const btnSubmit = frmServiceRea.querySelector('button[type=submit]');
+const btnSubmit = document.getElementById('save-btn');
 
 // Désactiver le bouton Ajouter
 btnSubmit.disabled = true;
@@ -47,7 +48,7 @@ nomInput.addEventListener('input', () => {
 // Validation du champ description à la saisie
 descriptionInput.addEventListener('input', () => {
     const desciption = descriptionInput.value.trim();
-    const desciptionValidator = Validator.nameValidator("La description", 5, 200, desciption);
+    const desciptionValidator = Validator.textValidator("La description", 5, 500, desciption);
 
     if (desciptionValidator) 
     {
@@ -101,7 +102,7 @@ function checkFormValidaty()
     const type = typeInput.value.trim();
 
     const isNameValid = Validator.nameValidator("Le nom", 5, 40, nom) == null;
-    const isDescriptionValid = Validator.nameValidator("La description", 5, 200, description) == null;
+    const isDescriptionValid = Validator.textValidator("La description", 5, 500, description) == null;
     const isphotoValid = photo && photo.type.startsWith('image/');
     const isTypeValid = type !== "";
 
@@ -111,4 +112,5 @@ function checkFormValidaty()
 // Desactiver le bouton ajouter apres cliquer sur annuler
 frmServiceRea.addEventListener('reset', () => {
     btnSubmit.disabled = true;
+});
 });

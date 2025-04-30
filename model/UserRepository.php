@@ -53,9 +53,5 @@ class UserRepository extends DBRepository
         }
     }
 
-    // Permet de se déconnecter un utilisateur
-    public function logout()
-    {
-        
-    }
+    
 }

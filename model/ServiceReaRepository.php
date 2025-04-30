@@ -38,11 +38,11 @@ class ServiceReaRepository extends DBRepository
         try {
             $statement = $this->db->prepare($sql);
             $statement->execute(['etat' => $etat, 'type' => $type]);
-            $result = $statement->fecthAll(PDO::FETCH_ASSOC);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $result ?: null;
         } catch (PDOException $error) {
-            $etatLabel = $etat = 1 ? 'actives' : 'supprimés';
-            $labelType = $type = 'R' ? 'réalisations' : 'services';
+            $etatLabel = ($etat === 1) ? 'actives' : 'supprimés';
+            $labelType = ($type === 'R') ? 'réalisations' : 'services';
             error_log("Erreur lors de la récuperation des $labelType $etatLabel" . $error->getMessage());
             throw $error;
         }
@@ -157,10 +157,9 @@ class ServiceReaRepository extends DBRepository
 
         try {
             $statement = $this->db->prepare($sql);
-            $statement->bindParam(':id', $id);
-            $statement->execute();
-            $result = $statement->fecth(PDO::FETCH_ASSOC);
-            return $result ?: null;
+            $statement->execute(['id' => $id]);
+            $rowAffected = $statement->rowCount();
+            return $rowAffected > 0;
         } catch (PDOException $error) {
             error_log("Erreur lors de la suppression définitivement de la réalisation/service d'id $id" . $error->getMessage());
             throw $error;

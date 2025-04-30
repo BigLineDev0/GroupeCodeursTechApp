@@ -1,14 +1,14 @@
     <div id="header" class="header navbar-default">
-        <!-- begin navbar-header -->
+       
         <div class="navbar-header">
-            <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
+            <a href="home" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
             <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <!-- end navbar-header --><!-- begin header-nav -->
+        
         <ul class="navbar-nav navbar-right">
             <li class="navbar-form">
                 <form action="" method="POST" name="search">
@@ -83,7 +83,7 @@
             <li class="dropdown navbar-user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="public/template/templateAdmin/assets/img/user/user-13.jpg" alt="" />
-                    <span class="d-none d-md-inline">Aliou Diallo</span> <b class="caret"></b>
+                    <span class="d-none d-md-inline"><?php echo $_SESSION['nom']; ?></span> <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="javascript:;" class="dropdown-item">Edit Profile</a>
@@ -91,9 +91,8 @@
                     <a href="javascript:;" class="dropdown-item">Calendar</a>
                     <a href="javascript:;" class="dropdown-item">Setting</a>
                     <div class="dropdown-divider"></div>
-                    <a href="javascript:;" class="dropdown-item">Log Out</a>
+                    <a href="logout" class="dropdown-item">Se déconnecter</a>
                 </div>
             </li>
         </ul>
-        <!-- end header-nav -->
     </div>

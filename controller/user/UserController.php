@@ -70,7 +70,7 @@
                 $_SESSION['etat'] = $user['etat'];
 
                 if (isset($_POST['remember'])) {
-                    setcookie('remember_me', $user['id'], expires_or_options: time() + 86400 * 30);
+                    setcookie('remember_me', $user['id'], time() + 86400 * 30, '/', '', false, true);
                 }
 
                 $this->setSuccessAndRedirect('Bienvenue sur le Dashboard admin', "Connexion réussie");
@@ -109,6 +109,18 @@
                 }
                 
             }
+        }
+
+        // Permet de se déconnecter un utilisateur
+        public function logout()
+        {
+            session_unset();
+            session_destroy();
+            if (isset($_COOKIE['remember_me'])) {
+                setcookie('remember_me', '', time() - 3000, '/', '', false, true);
+            }
+            $this->setSuccessAndRedirect('Vous avez été déconnecté avec succès.', "Déconnexion réussie", "home");
+
         }
     }
 ?>

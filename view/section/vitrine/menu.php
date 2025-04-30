@@ -2,7 +2,7 @@
         <!-- begin container -->
         <div class="container">
             <!-- begin navbar-brand -->
-            <a href="index.html" class="navbar-brand">
+            <a href="home" class="navbar-brand">
                 <span class="brand-logo"></span>
                 <span class="brand-text">
                     <span class="text-primary">Color</span> Admin
@@ -31,14 +31,28 @@
                     <li class="nav-item"><a class="nav-link" href="#about" data-click="scroll-to-target">ABOUT</a></li>
                     <li class="nav-item"><a class="nav-link" href="#team" data-click="scroll-to-target">TEAM</a></li>
                     <li class="nav-item"><a class="nav-link" href="#service" data-click="scroll-to-target">SERVICES</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#work" data-click="scroll-to-target">WORK</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work" data-click="scroll-to-target">REALISATIONS</a></li>
                     <li class="nav-item"><a class="nav-link" href="#client" data-click="scroll-to-target">CLIENT</a></li>
                     <li class="nav-item"><a class="nav-link" href="#pricing" data-click="scroll-to-target">PRICING</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact" data-click="scroll-to-target">CONTACT</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login">CONNEXION</a></li>
+                    <?php 
+                        session_start();
+                        if (isset($_SESSION['email'])): ?>
+                            <li class="nav-item">
+                                <a href="admin" class="nav-link">
+                                    <span class="brand-text">
+                                        <span class="text-primary text-uppercase"><?php echo $_SESSION['nom']; ?></span> 
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="logout" class="nav-link">SE DECONNECTER</a>
+                            </li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="login">CONNEXION</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
-            <!-- end navbar-collapse -->
         </div>
-        <!-- end container -->
     </div>

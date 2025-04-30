@@ -48,6 +48,11 @@
 		
 		<!-- ================== SECTION CONFIG ================== -->
 		<?php require_once("view/section/vitrine/config.php") ?>
+
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<!-- ================== Message Erreur/Success =============== -->
+	   <?php require_once("view/section/admin/msgErreurSuccess.php") ?>
 		
 	</div>
 	

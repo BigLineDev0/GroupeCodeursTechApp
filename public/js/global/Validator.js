@@ -46,7 +46,7 @@ class Validator
             return { error : true, message : `${controlName} est obligatoire.` }
         }
 
-        if (!value.match(new RegExp(format))) {
+        if (!format.test(value)) {
             return { error : true, message : `${controlName} ne doit contenir que des lettres.` }
         }
 
@@ -64,6 +64,29 @@ class Validator
 
         return null;
     }
+
+    // Permet de valider une description
+    static textValidator(controlName, minlength, maxlength, value)
+    {
+        if (!value) {
+            return { error : true, message : `${controlName} est obligatoire.` }
+        }
+
+        if (value.length < minlength) {
+            return {error : true, message : `${controlName} doit contenir au moins ${minlength} caractères.`}
+        }
+
+        if (value.length > maxlength) {
+            return {error : true, message : `${controlName} ne doit pas contenir plus de ${maxlength} caractères.`}
+        }
+
+        if ((value != "") && (value.startsWith(" ") || value.endsWith(" "))) {
+            return {error : true, message : `Les espaces de début et de fin ne sont pas autorisés.`} 
+        }
+
+        return null;
+    }
+
 
     // Permet de valider une adresse
     static addressValidator(controlName, minlength, maxlength, value)

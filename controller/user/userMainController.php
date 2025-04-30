@@ -6,4 +6,8 @@
     if (isset($_POST['frmLogin'])) {
         $userController->auth();
     }
+
+    if (isset($_GET['logout'])) {
+        $userController->logout();
+    }
 ?>

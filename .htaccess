@@ -2,8 +2,9 @@ RewriteEngine On
 
 # Global
 RewriteRule ^admin$ admin.php
-RewriteRule ^home$ home.php
+RewriteRule ^home$ index.php
 RewriteRule ^login$ login.php
+RewriteRule ^logout$ controller/user/UserMainController.php?logout=1
 
 # --------------------- View ----------------------------
 
@@ -30,7 +31,6 @@ RewriteRule ^corbeillUser$ view/pages/admin/user/corbeille.php
 # Profil
 RewriteRule ^profil$ view/pages/admin/profil/profil.php
 
-
 # ------------------- Controller -----------------------
 RewriteRule userMainController$ controller/user/UserMainController.php
 RewriteRule clientMainController$ controller/client/ClientMainController.php
@@ -38,7 +38,6 @@ RewriteRule contactMainController$ controller/contact/ContactMainController.php
 RewriteRule faqMainController$ controller/faq/FaqMainController.php
 RewriteRule newsletterMainController$ controller/newsletter/NewsletterMainController.php
 RewriteRule serviceReaMainController$ controller/serviceRea/ServiceReaMainController.php
-
 
 # ------------------- Model -----------------------
 RewriteRule userRepo$ model/UserRepository.php

@@ -20,8 +20,8 @@ class ServiceReaRepository extends DBRepository
         try {
             $statement = $this->db->prepare($sql);
             $statement->execute(['etat' => $etat]);
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            return $result ?: null;
+            return $statement->fetchAll(PDO::FETCH_ASSOC) ?: null;
+
         } catch (PDOException $error) {
             $etatLabel = $etat = 1 ? 'actives' : 'supprimés';
             $type = 'R' ? 'réalisations' : 'services';
@@ -38,8 +38,8 @@ class ServiceReaRepository extends DBRepository
         try {
             $statement = $this->db->prepare($sql);
             $statement->execute(['etat' => $etat, 'type' => $type]);
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            return $result ?: null;
+            return $statement->fetchAll(PDO::FETCH_ASSOC) ?: null;
+
         } catch (PDOException $error) {
             $etatLabel = ($etat === 1) ? 'actives' : 'supprimés';
             $labelType = ($type === 'R') ? 'réalisations' : 'services';
@@ -57,8 +57,8 @@ class ServiceReaRepository extends DBRepository
             $statement = $this->db->prepare($sql);
             $statement->bindParam(':id', $id);
             $statement->execute();
-            $result = $statement->fecth(PDO::FETCH_ASSOC);
-            return $result ?: null;
+            return $statement->fecth(PDO::FETCH_ASSOC) ?: null;
+
         } catch (PDOException $error) {
             error_log("Erreur lors de la récuperation de réalisation/service d'id $id" . $error->getMessage());
             throw $error;
@@ -80,8 +80,8 @@ class ServiceReaRepository extends DBRepository
                 'type' => $type,
                 'created_by' => $createdBy
             ]);
-            $result = $this->db->lastInsertId();
-            return $result ?: null;
+            return $this->db->lastInsertId() ?: null;
+
         } catch (PDOException $error) {
             error_log("Erreur lors de l'ajout d'une réalisation/serivce $nom" . $error->getMessage());
             throw $error;
@@ -104,8 +104,8 @@ class ServiceReaRepository extends DBRepository
                 'updated_by' => $updatedBy,
                 'id' => $id
             ]);
-            $rowAffected = $statement->rowCount();
-            return $rowAffected > 0;
+            return $statement->rowCount() >= 0;
+
         } catch (PDOException $error) {
             error_log("Erreur lors de modification d'une réalisation/serivce $nom" . $error->getMessage());
             throw $error;
@@ -123,8 +123,8 @@ class ServiceReaRepository extends DBRepository
                 'deleted_by' => $deletedBy,
                 'id' => $id
             ]);
-            $rowAffected = $statement->rowCount();
-            return $rowAffected > 0;
+            return $statement->rowCount() > 0;
+
         } catch (PDOException $error) {
             error_log("Erreur lors de la suppression d'une réalisation/serivce" . $error->getMessage());
             throw $error;
@@ -142,8 +142,8 @@ class ServiceReaRepository extends DBRepository
                 'updated_by' => $updatedBy,
                 'id' => $id
             ]);
-            $rowAffected = $statement->rowCount();
-            return $rowAffected > 0;
+            return $statement->rowCount() > 0;
+
         } catch (PDOException $error) {
             error_log("Erreur lors de la Restauration d'une réalisation/serivce" . $error->getMessage());
             throw $error;
@@ -158,8 +158,8 @@ class ServiceReaRepository extends DBRepository
         try {
             $statement = $this->db->prepare($sql);
             $statement->execute(['id' => $id]);
-            $rowAffected = $statement->rowCount();
-            return $rowAffected > 0;
+            return $statement->rowCount() > 0;
+            
         } catch (PDOException $error) {
             error_log("Erreur lors de la suppression définitivement de la réalisation/service d'id $id" . $error->getMessage());
             throw $error;

@@ -23,11 +23,38 @@
  
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- ================== VALIDATOR ADD SERVICEREA FORM ================== -->
+<!-- ================== GLOBAL JS ================== -->
 <script src="public/js/global/Validator.js"></script>
-<script src="public/js/serviceRea/addFrmValidator.js"></script>
-<script src="public/js/serviceRea/editFrmValidator.js"></script>
-<script src="public/js/serviceRea/confirmDelete.js"></script>
-<script src="public/js/serviceRea/showHide.js"></script>
-<script src="public/js/serviceRea/confirmRestaurer.js"></script>
-<script src="public/js/serviceRea/confirmDeleteDef.js"></script>
+
+<!-- ================== JS APP ================== -->
+<script>
+    function loaderScriptsIfPathEndsWith(path, scriptsSources)
+    {
+        if (window.location.pathname.endsWith(path)) {
+            
+            scriptsSources.forEach(src => {
+                const script = document.createElement("script");
+                script.src = src;
+                document.body.appendChild(script);
+            });
+        }
+    }
+
+    loaderScriptsIfPathEndsWith("listeServiceRea", [
+        "public/js/serviceRea/addFrmValidator.js",
+        "public/js/serviceRea/editFrmValidator.js",
+        "public/js/serviceRea/confirmDelete.js",
+        "public/js/serviceRea/showHide.js",
+        "public/js/serviceRea/confirmRestaurer.js",
+        "public/js/serviceRea/confirmDeleteDef.js",
+    ]);
+
+    loaderScriptsIfPathEndsWith("listeUser", [
+        "public/js/users/addFrmValidator.js",
+        "public/js/users/editFrmValidator.js",
+        "public/js/users/confirmDelete.js",
+        "public/js/users/showHide.js",
+        "public/js/users/confirmRestaurer.js",
+        "public/js/users/confirmDeleteDef.js",
+    ]);
+</script>

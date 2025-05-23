@@ -37,7 +37,7 @@
 				<li class="breadcrumb-item"><a href="#modal-add-service-rea" class="btn btn-sm btn-dark text-white" data-toggle="modal">Ajouter</a></li>
 				<li id="btn-show-liste" class="breadcrumb-item"><a href="#"  class="btn btn-sm btn-dark text-white">Afficher liste</a></li>
 				<li id="btn-show-corbeille" class="breadcrumb-item"><a href="#" class="btn btn-sm btn-dark text-white">Afficher Corbeille</a></li>
-				<li class="breadcrumb-item active">Utilisateur</li>
+				<li id="btn-show-liste" class="breadcrumb-item"><a href="listeUser" class="btn btn-sm btn-dark text-white">Utilisateur</a></li>
 			</ol>
 			
 			<h1 class="page-header"># Service / Réalisation</h1>
@@ -286,7 +286,7 @@
 						<!-- Photo -->
 						<div class="mb-3">
 							<label for="photo" class="form-label">Photo</label><br>
-							<input type="file" name="photo"  id="photo" accept="image/*" required>
+							<input type="file" name="photo" class="form-control-file" id="photo" accept="image/*" required>
 							<p class="error-message mt-2"></p>
 						</div>
 
@@ -343,7 +343,7 @@
 						<!-- Photo -->
 						<div class="mb-3">
 							<label for="edit-photo" class="form-label">Photo</label><br>
-							<input type="file" name="edit-photo"  id="edit-photo" accept="image/*" required>
+							<input type="file" name="edit-photo" class="form-control-file" id="edit-photo" accept="image/*" required>
 							<div class="image-preview-container">
 								<img src="" id="photo-preview" alt="Aperçu de l'image">
 							</div>

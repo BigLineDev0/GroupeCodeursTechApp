@@ -1,4 +1,8 @@
 <?php
+
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+
     session_start();
     require_once("../../model/UserRepository.php");
 
@@ -122,5 +126,63 @@
             $this->setSuccessAndRedirect('Vous avez été déconnecté avec succès.', "Déconnexion réussie", "home");
 
         }
+
+        // Permet de generer un mot de passe par defaut
+        private function generateDefaultPassword($length = 8)
+        {
+            $chaine = "abcdefghijklmnopqrstuvwyzABCDEFGHIJKLMNOPQRSTUVWYZ0123456789";
+            $chaineLength = strlen($chaine);
+            $randomPassword = "";
+
+            for ($i=0; $i < $length; $i++) { 
+                $randomPassword .= $chaine[rand(0, $chaineLength - 1)];
+            }
+
+            return $randomPassword;
+        }
+
+        // Permet d'envoyer un mail contenant les identifiants de connexion(email et password)
+        function sendPasswordEmail($email, $password)
+        {
+            $mail = new PHPMailer(true);
+
+            try {
+                // configuration du serveur SMTP
+                $mail->isSMTP();
+                $mail->Host = 'sandbox.smtp.mailtrap.io';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'd9381bb728147e';
+                $mail->Password = '8853b74892f67c';
+                $mail->Port = 2525;
+
+                // Expediteur et destinataire
+                $mail->setFrom('no-reply@groupecodeur.com', 'Groupe Codeurs');
+                $mail->addAddress($email, 'Utilisateur');
+
+                // Contenu du mail
+                $mail->isHTML(true);
+                $mail->Subject = "Bienvenue sur la plateforme Groupe Codeurs";
+                $mail->Body = "
+                    <h1>Bienvenue !</h1>
+                    <p>Votre compte a été avec succès. Voici vos identifiants:</p>
+                    <ul>
+                        <li>Email: <strong>{$email}</strong> </li>
+                        <li>Email: <strong>{$password}</strong> </li>
+                    </ul>
+                    <p>Merci de vous connecter pour commencer.</p>
+                ";
+
+                $mail->AltBody = "Bienvenue: Votre comptea été crée. Email: {$email}, Mot de passe {$password}";
+
+                // Envoi de l'email
+                $mail->send();
+                echo "Email envoyé avec succès à " . $email;
+                
+            } catch (Exception $error) {
+                echo "erreur lors de l'envoi email {$mail->ErrorInfo}";
+            }
+
+        }
     }
+    
 ?>

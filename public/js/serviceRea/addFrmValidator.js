@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
 // Récuperation des champs du formulaire
 const nomInput = document.getElementById('nom');
 const descriptionInput = document.getElementById('description');
@@ -113,4 +113,4 @@ function checkFormValidaty()
 frmServiceRea.addEventListener('reset', () => {
     btnSubmit.disabled = true;
 });
-});
+// });

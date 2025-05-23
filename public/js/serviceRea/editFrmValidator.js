@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
     // Récuperation des champs du formulaire
     const nomInputEdit = document.getElementById('edit-nom');
     const idInputEdit = document.getElementById('edit-id');
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const frmEditServiceRea = document.getElementById('formEditServiceRea');
     const btnSubmitEdit = frmEditServiceRea.querySelector('button[type=submit]');
     const photoPreview = document.getElementById('photo-preview');
-
+ 
     // Désactiver le bouton Ajouter
     btnSubmitEdit.disabled = true;
 
@@ -105,12 +105,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const isNameValid = Validator.nameValidator("Le nom", 5, 40, nom) == null;
         const isDescriptionValid = Validator.textValidator("La description", 5, 500, description) == null;
-        const isphotoValid = photo && photo.type.startsWith('image/');
+        const isphotoValid = photo && photo.type.startsWith('image/') || photoPreview.src !== "";
         const isTypeValid = type !== "";
 
         btnSubmitEdit.disabled = !(isNameValid && isDescriptionValid && isphotoValid && isTypeValid);
     }
-
 
     const editButtons = document.querySelectorAll('.btn-edit');
         
@@ -145,6 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
     });
-});
+// });
 
 

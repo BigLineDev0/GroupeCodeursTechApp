@@ -3,6 +3,9 @@
 <!-- ================== SECTION HEAD ================== -->
 <?php require_once("../../../section/admin/head.php") ?>
 
+<!-- ================== Vérification session ================== -->
+<?php require_once("../../../section/admin/verifySession.php") ?>
+
 <body>
 	
 	<!-- ================== Récupération liste servicesRea dans la BD ================== -->
@@ -78,7 +81,7 @@
 											<?php if(!empty($serviceRea['photo'])) : ?>
 												<img src="public/images/servicesRea/<?= htmlspecialchars($serviceRea['photo'])?>" style="width: 40px;" class="img-rounded height-30" />
 											<?php else : ?>
-												<img src="public/images/servicesRea/user-1.jpg" class="img-rounded height-30" />
+												<img src="public/images/servicesRea/default.jpg" class="img-rounded height-30" />
 											<?php endif ?>
 										</td>
 
@@ -183,7 +186,7 @@
 											<?php if(!empty($serviceRea['photo'])) : ?>
 												<img src="public/images/servicesRea/<?= htmlspecialchars($serviceRea['photo'])?>" style="width: 40px;" class="img-rounded height-30" />
 											<?php else : ?>
-												<img src="public/images/servicesRea/user-1.jpg" class="img-rounded height-30" />
+												<img src="public/images/servicesRea/default.jpg" class="img-rounded height-30" />
 											<?php endif ?>
 										</td>
 

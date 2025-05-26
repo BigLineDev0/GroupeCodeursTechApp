@@ -35,7 +35,7 @@
 			<?php endforeach; ?>
 		<?php else : ?>
 			<div class="col-lg-12 col-md-12">
-				<div class="alert alert-warning" role="alert">
+				<div class="alert alert-warning text-center h4 fw-bold" role="alert">
 					Aucun service trouvé.
 				</div>
 			</div>

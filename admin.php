@@ -6,13 +6,7 @@
 <body>
 	
 	<!-- ================== Vérification session ================== -->
-	<?php 
-		session_start();
-		if (!$_SESSION['email']) {
-			header("Location: login?error=1&message=" . urldecode('Merci de vous connecter') . "&title=" . urldecode('Accès interdit !'));
-			exit;
-		}
-	?>
+	<?php require_once("view/section/admin/verifySession.php") ?>
 
 	<!-- ================== SECTION LOADER ================== -->
 	<div id="page-loader" class="fade show">

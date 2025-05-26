@@ -3,6 +3,9 @@
 <!-- ================== SECTION HEAD ================== -->
 <?php require_once("../../../section/admin/head.php") ?>
 
+<!-- ================== Vérification session ================== -->
+<?php require_once("../../../section/admin/verifySession.php") ?>
+
 <body>
 	
 	<!-- ================== Récupération liste servicesRea dans la BD ================== -->
@@ -35,10 +38,22 @@
 		<!-- ================== SECTION BASE CONTENT ================== -->
 		<div id="content" class="content">
 			<ol class="breadcrumb float-xl-right">
-				<li class="breadcrumb-item"><a href="#modal-add-user" class="btn btn-sm btn-dark text-white" data-toggle="modal">Ajouter</a></li>
-				<li id="btn-show-liste-user" class="breadcrumb-item"><a href="#"  class="btn btn-sm btn-dark text-white">Afficher liste</a></li>
-				<li id="btn-show-corbeille-user" class="breadcrumb-item"><a href="#" class="btn btn-sm btn-dark text-white">Afficher Corbeille</a></li>
-				<li id="btn-show-liste-user" class="breadcrumb-item"><a href="listeServiceRea" class="btn btn-sm btn-dark text-white">Réalisations</a></li>
+				<li class="breadcrumb-item">
+					<a href="#modal-add-user" class="btn btn-sm btn-dark text-white" data-toggle="modal">Ajouter</a>
+				</li>
+
+				<li id="btn-show-liste-user" class="breadcrumb-item">
+					<a href="#"  class="btn btn-sm btn-dark text-white">Afficher liste</a>
+				</li>
+
+				<li id="btn-show-corbeille-user" class="breadcrumb-item">
+					<a href="#" class="btn btn-sm btn-dark text-white">Afficher Corbeille</a>
+				</li>
+
+				<li class="breadcrumb-item">
+					<a href="#modal-change-password" class="btn btn-sm btn-dark text-white" data-toggle="modal">Changer le mot de passe</a>
+				</li>
+				
 			</ol>
 			
 			<h1 class="page-header"># Utilisateurs</h1>
@@ -81,7 +96,7 @@
 											<?php if(!empty($user['photo'])) : ?>
 												<img src="public/images/users/<?= htmlspecialchars($user['photo'])?>" style="width: 40px;" class="img-rounded height-30" />
 											<?php else : ?>
-												<img src="public/images/users/user-1.jpg" class="img-rounded height-30" />
+												<img src="public/images/users/default.jpg" class="img-rounded height-30" />
 											<?php endif ?>
 										</td>
 
@@ -203,7 +218,7 @@
 											<?php if(!empty($user['photo'])) : ?>
 												<img src="public/images/users/<?= htmlspecialchars($user['photo'])?>" style="width: 40px;" class="img-rounded height-30" />
 											<?php else : ?>
-												<img src="public/images/users/user-1.jpg" class="img-rounded height-30" />
+												<img src="public/images/users/default.jpg" class="img-rounded height-30" />
 											<?php endif ?>
 										</td>
 
@@ -368,35 +383,35 @@
 						<div class="mb-3">
 							<label for="user-nom" class="form-label">Nom</label>
 							<input type="hidden" name="edit-user-id" id="edit-user-id" value="">
-							<input type="text" name="nom" class="form-control" id="edit-user-nom" placeholder="Nom" required>
+							<input type="text" name="edit-user-nom" class="form-control" id="edit-user-nom" placeholder="Nom" required>
 							<p class="error-message mt-2"></p>
 						</div>
 
 						<!-- Adresse -->
 						<div class="mb-3">
 							<label for="user-adresse" class="form-label">Adresse</label>
-							<input type="text" name="adresse" class="form-control" id="edit-user-adresse" placeholder="Adresse" required>
+							<input type="text" name="edit-user-adresse" class="form-control" id="edit-user-adresse" placeholder="Adresse" required>
 							<p class="error-message mt-2"></p>
 						</div>
 
 						<!-- Téléphone -->
 						<div class="mb-3">
 							<label for="user-telephone" class="form-label">Téléphone</label>
-							<input type="tel" name="telephone" class="form-control" id="edit-user-telephone" placeholder="Téléphone" required>
+							<input type="tel" name="edit-user-telephone" class="form-control" id="edit-user-telephone" placeholder="Téléphone" required>
 							<p class="error-message mt-2"></p>
 						</div>
 
 						<!-- Email -->
 						<div class="mb-3">
 							<label for="user-email" class="form-label">Email</label>
-							<input type="email" name="email" class="form-control" id="edit-user-email" placeholder="Email" required>
+							<input type="email" name="edit-user-email" class="form-control" id="edit-user-email" placeholder="Email" required>
 							<p class="error-message mt-2"></p>
 						</div>
 
 						<!-- Photo -->
 						<div class="mb-3">
 							<label for="user-photo" class="form-label">Photo</label><br>
-							<input type="file" name="photo" class="form-control-file" id="edit-user-photo" accept="image/*" required>
+							<input type="file" name="edit-user-photo" class="form-control-file" id="edit-user-photo" accept="image/*" required>
 							<div class="image-preview-container">
 								<img src="" id="edit-photo-preview" alt="Aperçu de l'image">
 							</div>
@@ -406,7 +421,7 @@
 						<!-- Rôle -->
 						<div class="mb-3">
 							<label for="role" class="form-label">Rôle</label>
-							<select class="form-control" name="role" id="edit-user-role" required>
+							<select class="form-control" name="edit-user-role" id="edit-user-role" required>
 								<option value="">--Selectionner un rôle--</option>
 								<option value="Admin">Admin</option>
 								<option value="Equipe">Equipe</option>
@@ -417,6 +432,52 @@
 						<!-- Btn soumition -->
 						<div style="display: flex; justify-content: center;">
 							<button type="submit" name="frmEditUser" class="btn btn-primary fw-bold" id="edit-user-btn">Modifier</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ========== MODAL CHANGE PASSWORD ========== -->
+	<div class="modal fade" id="modal-change-password" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h4 class="modal-title">Changer votre mot passe</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				
+				<div class="modal-body">
+					<form id="fmrchangePwd" action="userMainController" method="post" enctype="multipart/form-data">
+
+						<!-- Mot de passe actuel -->
+						<div class="mb-3">
+							<label for="current_password" class="form-label">Mot de passe actuel</label>
+							<input type="password" name="current_password" class="form-control" id="current_password" placeholder="Entrer le Mot de passe actuel" required>
+							<p class="error-message mt-2"></p>
+						</div>
+
+						<!-- Nouveau Mot de passe -->
+						<div class="mb-3">
+							<label for="new_password" class="form-label">Nouveau Mot de passe</label>
+							<input type="password" name="new_password" class="form-control" id="new_password" placeholder="Entrer le Nouveau Mot de passe" required>
+							<p class="error-message mt-2"></p>
+						</div>
+
+						<!-- Confirmer Mot de passe -->
+						<div class="mb-3">
+							<label for="confirm_password" class="form-label">Confirmer Mot de passe</label>
+							<input type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="Entrer le Mot de passe de confirmation" required>
+							<p class="error-message mt-2"></p>
+						</div>
+
+						<!-- Btn soumition -->
+						<div style="display: flex; justify-content: center;">
+							<button type="submit" name="frmChangePwd" class="btn btn-primary fw-bold" id="frmChangePwd">Changer le mot de passe</button>
+							&nbsp; &nbsp;
+							<button type="reset" class="btn btn-danger fw-bold">Annuler</button>
 						</div>
 					</form>
 				</div>

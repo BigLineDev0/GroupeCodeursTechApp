@@ -5,11 +5,11 @@
                 <a href="javascript:;" data-toggle="nav-profile">
                     <div class="cover with-shadow"></div>
                     <div class="image">
-                        <img src="public/template/templateAdmin/assets/img/user/user-13.jpg" alt="" />
+                        <img src="public/images/users/<?= $photo ?>" alt="Photo profil" />
                     </div>
                     <div class="info">
-                        <b class="caret pull-right"></b><?php echo $_SESSION['nom']; ?>
-                        <small><?php echo $_SESSION['email']; ?></small>
+                        <b class="caret pull-right"></b><?= $nom ?>
+                        <small><?= $email ?></small>
                     </div>
                 </a>
             </li>
@@ -45,14 +45,6 @@
                 </a>
             </li>
 
-            <!-- faq -->
-            <li class="has-sub">
-                <a href="listeFaq">
-                    <i class="fa fa-question"></i>
-                    <span>FAQ</span>
-                </a>
-            </li>
-
             <!-- Newsletter -->
             <li class="has-sub">
                 <a href="javascript:;">
@@ -66,14 +58,6 @@
                 <a href="listeContact">
                     <i class="fa fa-tty"></i>
                     <span>Contact</span>
-                </a>
-            </li>
-
-            <!-- Client -->
-            <li class="has-sub">
-                <a href="listeClient">
-                    <i class="fa fa-users"></i>
-                    <span>Client</span>
                 </a>
             </li>
 

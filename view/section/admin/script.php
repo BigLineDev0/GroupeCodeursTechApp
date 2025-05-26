@@ -56,5 +56,6 @@
         "public/js/users/showHide.js",
         "public/js/users/confirmRestaurer.js",
         "public/js/users/confirmDeleteDef.js",
+        "public/js/users/changePwdFrmValidator.js",
     ]);
 </script>

@@ -12,7 +12,7 @@
     const photoEditPreview = document.getElementById('edit-photo-preview');
 
     // Désactiver le bouton Ajouter
-    btnEditSubmit.disabled = true;
+    // btnEditSubmit.disabled = true;
 
     // Permet d'afficher ou masquer le message d'erreur
     function showError(input, message)

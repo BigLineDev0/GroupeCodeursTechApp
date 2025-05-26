@@ -1,12 +1,11 @@
-document.addEventListener('DOMContentLoaded',function(){
-    const btnDeleteElements = document.querySelectorAll('.btn-delete-user');
+const btnDeleteElements = document.querySelectorAll('.btn-delete-user');
     btnDeleteElements.forEach((btnDeleteElement) => {
         btnDeleteElement.addEventListener('click', function(event){
             event.preventDefault();
-    
+
             const userId = this.getAttribute('data-id-user');
             const userName = this.getAttribute('data-nom-user');
-    
+
             Swal.fire({
                 title: `Êtes-vous sûr de vouloir supprimer ${userName} ?`,	
                 text: 'Cette action est irréversible.',
@@ -22,5 +21,4 @@ document.addEventListener('DOMContentLoaded',function(){
                 }
             })
         });
-    });
 });

@@ -10,7 +10,7 @@
     const btnSubmit = document.getElementById('btnAddUser');
 
     // Désactiver le bouton Ajouter
-    btnSubmit.disabled = true;
+    // btnSubmit.disabled = true;
 
     // Permet d'afficher ou masquer le message d'erreur
     function showError(input, message)
@@ -146,13 +146,16 @@
         const isphotoValid = photo && photo.type.startsWith('image/');
         const isRoleValid = role !== "";
 
-        btnSubmit.disabled = !(isNameValid 
+        if(
+            isNameValid
             && isAdresseValid 
             && isTelephoneValid 
             && isEmailValid
             && isphotoValid 
-            && isRoleValid
-        );
+            && isRoleValid){
+            btnSubmit.removeAttribute("disabled")
+        }
+        
     }
 
     // Desactiver le bouton ajouter apres cliquer sur annuler

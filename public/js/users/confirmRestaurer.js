@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',function(){
+
     const btnRestaurerElements = document.querySelectorAll('.btn-restaurer-user');
     btnRestaurerElements.forEach((btnRestaurerElement) => {
         btnRestaurerElement.addEventListener('click', function(event){
@@ -23,4 +23,3 @@ document.addEventListener('DOMContentLoaded',function(){
             })
         });
     });
-});

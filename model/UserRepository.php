@@ -11,16 +11,14 @@ class UserRepository extends DBRepository
 
         try {
             $statement = $this->db->prepare($sql);
-            // Crypter le mot de passe
-            $hashPassword = password_hash($password, PASSWORD_DEFAULT);
-
+        
             $statement->execute([
                 'nom' => $nom,
                 'adresse' => $adresse,
                 'telephone' => $telephone,
                 'photo' => $photo,
                 'email' => $email,
-                'password' => $hashPassword,
+                'password' => $password,
                 'role' => $role,
                 'created_by' => $createdBy
             ]);
@@ -41,6 +39,8 @@ class UserRepository extends DBRepository
             $statement = $this->db->prepare($sql);
             $statement->execute(['email' => $email]);
             $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+           
 
             if ($user && password_verify($password, $user['password'])) {
                 return $user;
@@ -124,10 +124,27 @@ class UserRepository extends DBRepository
         }
     }
 
-    // Modifier un utilisateur
-    public function edit($id, $nom, $adresse, $photo, $email, $role, $updatedBy)
+    // Récuperer un utilisateur via son email
+    public function getUserByEmail(string $email)
     {
-        $sql = "UPDATE users SET nom = :nom, adresse = :adresse, 
+        $sql = "SELECT * FROM users WHERE email = :email";
+
+        try {
+            $statement = $this->db->prepare($sql);
+            $statement->bindParam(':email', $email);
+            $statement->execute();
+            return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
+
+        } catch (PDOException $error) {
+            error_log("Erreur lors de la récuperation del'utilisateur d'email $email" . $error->getMessage());
+            throw $error;
+        }
+    }
+
+    // Modifier un utilisateur
+    public function edit($id, $nom, $adresse, $telephone, $photo, $email, $role, $updatedBy)
+    {
+        $sql = "UPDATE users SET nom = :nom, adresse = :adresse, telephone = :telephone,
                 photo = :photo, email = :email, 
                 role = :role, updated_at = NOW(), updated_by = :updated_by WHERE id = :id";
 
@@ -136,6 +153,7 @@ class UserRepository extends DBRepository
             $statement->execute([
                 'nom' => $nom,
                 'adresse' => $adresse,
+                'telephone' => $telephone,
                 'photo' => $photo,
                 'email' => $email,
                 'role' => $role,

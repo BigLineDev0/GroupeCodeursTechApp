@@ -47,7 +47,7 @@
 
             <!-- Newsletter -->
             <li class="has-sub">
-                <a href="javascript:;">
+                <a href="listeNewsletter">
                     <i class="fa fa-envelope"></i>
                     <span>Newsletter</span>
                 </a>

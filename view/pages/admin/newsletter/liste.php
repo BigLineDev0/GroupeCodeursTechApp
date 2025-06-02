@@ -8,16 +8,16 @@
 
 <body>
 	
-	<!-- ================== Récupération liste contacts dans la BD ================== -->
+	<!-- ================== Récupération liste newsletters dans la BD ================== -->
 	<?php
-		require_once('../../../../model/contactRepository.php');
-		$contactRepository = new contactRepository();
+		require_once('../../../../model/NewsletterRepository.php');
+		$newsletterRepository = new NewsletterRepository();
 		try {
-			$listeContacts = $contactRepository->getAll();
+			$listenewsletters = $newsletterRepository->getAll();
 
 		} catch (Exception $error) {
-			"<p>Erreur lors du chargement de la liste des contacts ".$error->getMessage() . "</p>";
-			$listeContacts = [];
+			"<p>Erreur lors du chargement de la liste des newsletters ".$error->getMessage() . "</p>";
+			$listenewsletters = [];
 		}
 	?>
 
@@ -37,26 +37,26 @@
 		<!-- ================== SECTION BASE CONTENT ================== -->
 		<div id="content" class="content">
 			<ol class="breadcrumb float-xl-right">
-				
+				<li class="breadcrumb-item">
+					<a href="#modal-send-newsletter" class="btn btn-sm btn-dark text-white" data-toggle="modal">Enoyer un message aux abonnés</a>
+				</li>
+
 				<li id="btn-show-liste-user" class="breadcrumb-item">
-					<a href="#"  class="btn btn-sm btn-dark text-white">Contacts</a>
+					<a href="listeContact" class="btn btn-sm btn-dark text-white">Contact</a>
 				</li>
 
 				<li id="btn-show-corbeille-user" class="breadcrumb-item">
 					<a href="listeServiceRea" class="btn btn-sm btn-dark text-white">Réalisations</a>
 				</li>
-
-				
-				
 			</ol>
 			
-			<h1 class="page-header"># contacts</h1>
+			<h1 class="page-header"># Newsletters</h1>
 			
-			<!-- Liste contact -->
+			<!-- Liste newsletter -->
 			<div id="table-liste-user" class="panel panel-inverse">
 				
 				<div class="panel-heading">
-					<h4 class="panel-title">Liste contacts</h4>
+					<h4 class="panel-title">Liste Newsletters</h4>
 					<div class="panel-heading-btn">
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
@@ -69,51 +69,29 @@
 					<table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
 						<thead>
 							<tr>
-								<th width="1%" data-orderable="false">Nom</th>
 								<th class="text-nowrap text-center">Email</th>
-								<th class="text-nowrap text-center">Sujet</th>
-								<th class="text-nowrap text-center">Message</th>
 								<th class="text-nowrap text-center">Créer le</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php if(!empty($listeContacts)) : ?>
-								<?php foreach($listeContacts as $contact) : ?>
+							<?php if(!empty($listenewsletters)) : ?>
+								<?php foreach($listenewsletters as $newsletter) : ?>
 									<tr class="odd gradeX">
-
-										<!-- Nom -->
-										<td width="1%" class="with-img text-center">
-											<?= htmlspecialchars($contact['nom'])?>
-										</td>
 
 										<!-- Email -->
 										<td class="text-center">
-											<?= htmlspecialchars($contact['email'])?>
+											<?= htmlspecialchars($newsletter['email'])?>
 										</td>
 
-										<!-- Sujet -->
-										<td class="text-center">
-											<?= htmlspecialchars($contact['sujet'])?>
-										</td>
-
-										<!-- Message -->
-										<td class="text-center">
-											
-											<span data-toggle="tooltip" data-placement="top" title="<?= htmlspecialchars($contact['message'])?>">
-												<?= htmlspecialchars(mb_substr($contact['message'], 0, 20)) .
-												(strlen($contact['message']) > 20 ? '...' : '')?>
-											</span>
-										</td>
-										
 										<!-- Date de création-->
 										<td class="text-center">
-											<?= htmlspecialchars(date('d/m/Y à H:i'), strtotime($contact['created_at']))?> </br>
+											<?= htmlspecialchars(date('d/m/Y à H:i'), strtotime($newsletter['created_at']))?> </br>
 										</td>
 										
 									</tr>
 								<?php endforeach ?>
 							<?php else : ?>
-								<p class="alert alert-danger text-center h4 fw-bold">La liste des contacts est vide.</p>
+								<p class="alert alert-danger text-center h4 fw-bold">La liste des newsletters est vide.</p>
 							<?php endif ?>
 						</tbody>
 					</table>
@@ -130,6 +108,36 @@
 		<!-- ================== SECTION SCROL ================== -->
 		<?php require_once("../../../section/admin/scrol.php") ?>
 
+	</div>
+
+	<!-- ========== MODAL SEND MESSAGE AUX ABONNES ========== -->
+	<div class="modal fade" id="modal-send-newsletter" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h4 class="modal-title">Envoyer un message aux abonnés</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				</div>
+				
+				<div class="modal-body">
+					<form id="sendMessageForm" action="newsletterMainController" method="POST">
+
+						<!-- Description -->
+						<div class="mb-3">
+							<label for="message" class="form-label">Message</label>
+							<textarea name="message" class="form-control" id="message" rows="3" placeholder="Ecrivez votre message" required></textarea>
+							<p class="error-message mt-2"></p>
+						</div>
+
+						<!-- Btn soumition -->
+						<div style="display: flex; justify-content: center;">
+							<button type="submit" name="frmSendMessage" class="btn btn-primary fw-bold">Envoyer</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- ================== SECTION SCRIPT JS ================== -->

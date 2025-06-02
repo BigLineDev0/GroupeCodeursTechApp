@@ -16,4 +16,37 @@ class NewsletterRepository extends DBRepository
             throw $error;
         }
     }
+
+    // Récuperer un utilisateur via son email
+    public function getByEmail(string $email)
+    {
+        $sql = "SELECT * FROM newsletters WHERE email = :email";
+
+        try {
+            $statement = $this->db->prepare($sql);
+            $statement->bindParam(':email', $email);
+            $statement->execute();
+            return $statement->fetch(PDO::FETCH_ASSOC) ?: null;
+
+        } catch (PDOException $error) {
+            error_log("Erreur lors de la récuperation de la newsletters de l'email $email" . $error->getMessage());
+            throw $error;
+        }
+    }
+
+    // Ajouter une nouvelle newsletters
+    public function add($email)
+    {
+        $sql = "INSERT INTO newsletters (email, created_at) VALUES (:email, NOW())";
+
+        try {
+            $statement = $this->db->prepare($sql);
+            $statement->execute(['email' => $email]);
+            return $this->db->lastInsertId() ?: null;
+
+        } catch (PDOException $error) {
+            error_log("Erreur lors de l'ajout d'un contact" . $error->getMessage());
+            throw $error;
+        }
+    }
 }

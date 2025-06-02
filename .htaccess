@@ -14,6 +14,9 @@ RewriteRule ^listeServiceRea$ view/pages/admin/serviceRea/liste.php
 # Contact
 RewriteRule ^listeContact$ view/pages/admin/contact/liste.php
 
+# Newslleter
+RewriteRule ^listeNewsletter$ view/pages/admin/newsletter/liste.php
+
 # User
 RewriteRule ^listeUser$ view/pages/admin/user/liste.php
 
@@ -25,6 +28,7 @@ RewriteRule userMainController$ controller/user/UserMainController.php
 RewriteRule contactMainController$ controller/contact/ContactMainController.php
 RewriteRule newsletterMainController$ controller/newsletter/NewsletterMainController.php
 RewriteRule serviceReaMainController$ controller/serviceRea/ServiceReaMainController.php
+RewriteRule contactMainController$ controller/contact/ContactMainController.php
 
 # ------------------- Model -----------------------
 RewriteRule userRepo$ model/UserRepository.php

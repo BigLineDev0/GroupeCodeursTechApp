@@ -58,6 +58,15 @@
 	
 	<!-- ================== BASE JS ================== -->
 	<script src="public/template/templateVitrine/assets/js/one-page-parallax/app.min.js"></script>
+
+	<!-- ================== GLOBAL VALIDATED JS ================== -->
+	<script src="public/js/global/Validator.js"></script>
+
+	<!-- ================== CONTACT VALIDATED JS ================== -->
+	<script src="public/js/contact/contactFrmValidator.js"></script>
+
+	<!-- ================== NEWSLETTER VALIDATED JS ================== -->
+	<script src="public/js/newsletter/newsletterFrmValidator.js"></script>
 	
 </body>
 </html>

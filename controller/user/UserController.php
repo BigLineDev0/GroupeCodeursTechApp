@@ -96,7 +96,7 @@
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                $email = trim($_POST['edit-user-email'] ?? '');
+                $email = trim($_POST['email'] ?? '');
                 $password = trim($_POST['password'] ?? '');
 
                 $messageError = $this->validateLoginField($email, $password);

@@ -20,7 +20,7 @@ class ContactRepository extends DBRepository
     // Ajouter un nouvel contact
     public function add($nom, $email, $sujet, $message)
     {
-        $sql = "INSERT INTO contacts (nom, email, sujet, message, created_by)
+        $sql = "INSERT INTO contacts (nom, email, sujet, message, created_at)
                     VALUES (:nom, :email, :sujet, :message, NOW())";
 
         try {

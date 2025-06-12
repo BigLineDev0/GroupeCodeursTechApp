@@ -1,10 +1,13 @@
 <div id="about" class="content" data-scrollview="true">
 <!-- begin container -->
 <div class="container" data-animation="true" data-animation-type="fadeInDown">
-    <h2 class="content-title">About Us</h2>
+    <h2 class="content-title">
+        A propos
+    </h2>
     <p class="content-desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur eros dolor,<br />
-        sed bibendum turpis luctus eget
+        Nous sommes une équipe de développeurs passionnés,
+        dédiée à la création de solutions innovantes et efficaces pour nos clients.
+        
     </p>
     <!-- begin row -->
     <div class="row">
@@ -12,33 +15,29 @@
         <div class="col-lg-4">
             <!-- begin about -->
             <div class="about">
-                <h3 class="mb-3">Our Story</h3>
+                <h3 class="mb-3">
+                    Notre Histoire
+                </h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Vestibulum posuere augue eget ante porttitor fringilla. 
-                    Aliquam laoreet, sem eu dapibus congue, velit justo ullamcorper urna, 
-                    non rutrum dolor risus non sapien. Vivamus vel tincidunt quam. 
-                    Donec ultrices nisl ipsum, sed elementum ex dictum nec. 
+                    notre histoire a commencé il y a plusieurs années,
+                    lorsque nous avons réalisé que le monde du développement web manquait de solutions simples et efficaces.    
                 </p>
                 <p>
-                    In non libero at orci rutrum viverra at ac felis. 
-                    Curabitur a efficitur libero, eu finibus quam. 
-                    Pellentesque pretium ante vitae est molestie, ut faucibus tortor commodo. 
-                    Donec gravida, eros ac pretium cursus, est erat dapibus quam, 
-                    sit amet dapibus nisl magna sit amet orci. 
+                    Depuis, nous avons travaillé sans relâche pour créer des outils et des services qui simplifient la vie de nos utilisateurs,
+                    tout en maintenant un haut niveau de qualité et d'innovation.
                 </p>
             </div>
-            <!-- end about -->
         </div>
-        <!-- end col-4 -->
-        <!-- begin col-4 -->
+        
         <div class="col-lg-4">
-            <h3 class="mb-3">Our Philosophy</h3>
+            <h3 class="mb-3">
+                Notre Philosophie
+            </h3>
             <!-- begin about-author -->
             <div class="about-author">
                 <div class="quote">
                     <i class="fa fa-quote-left"></i>
-                    <h3>We work harder,<br /><span>to let our user keep simple</span></h3>
+                    <h3>simplifier la vie de nos utilisateurs,<br /><span> grâce à des solutions innovantes et accessibles.</span></h3>
                     <i class="fa fa-quote-right"></i>
                 </div>
                 <div class="author">
@@ -46,8 +45,8 @@
                         <img src="public/template/templateVitrine/assets/img/user/user-1.jpg" alt="Sean Ngu" />
                     </div>
                     <div class="info">
-                        Sean Ngu
-                        <small>Front End Developer</small>
+                        Aliou DIALLO
+                        <small>Full Stack Developer</small>
                     </div>
                 </div>
             </div>
@@ -56,7 +55,7 @@
         <!-- end col-4 -->
         <!-- begin col-4 -->
         <div class="col-lg-4">
-            <h3 class="mb-3">Our Experience</h3>
+            <h3 class="mb-3">Nos Compétentes</h3>
             <!-- begin skills -->
             <div class="skills">
                 <div class="skills-name">Front End</div>
@@ -84,11 +83,11 @@
                     </div>
                 </div>
             </div>
-            <!-- end skills -->
+            
         </div>
-        <!-- end col-4 -->
+       
     </div>
-    <!-- end row -->
+ 
 </div>
-<!-- end container -->
+
 </div>

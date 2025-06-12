@@ -9,14 +9,21 @@
     <!-- begin container -->
     <div class="container home-content">
         <h1>
-			Bienvenue sur Groupe Codeurs
+			Welcome to Groupe Codeurs
 		</h1>
-        <h3>Multipurpose One Page Theme</h3>
+        <h3>
+			L'innovation au service de votre succès
+		</h3>
         <p>
-            We have created a multi-purpose theme that take the form of One-Page or Multi-Page Version.<br />
-            Use our <a href="#">theme panel</a> to select your favorite theme color.
+            Chez Groupe Codeurs, nous sommes passionnés par la création de solutions numériques innovantes qui transforment les idées en réalité. 
+			Notre équipe d'experts est dédiée à fournir des services de développement web, de design graphique et de marketing digital de haute 
+			qualité pour aider votre entreprise à atteindre ses objectifs. 
         </p>
-        <a href="#" class="btn btn-theme btn-primary">Explore More</a> <a href="#" class="btn btn-theme btn-outline-white">Purchase Now</a><br />
+        <a href="#" class="btn btn-theme btn-primary">
+			En savoir plus
+		</a> <a href="#" class="btn btn-theme btn-outline-white">
+			Contactez-nous
+		</a><br />
         <br />
         ou <a href="#modal-add-newsletter" data-toggle="modal">S'inscrire</a> newsletter
     </div>

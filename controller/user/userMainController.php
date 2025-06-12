@@ -37,4 +37,14 @@
     if (isset($_POST['frmEditUser'])) {
         $userController->editUser();
     }
+
+    // Envoyer un email de réinitialisation
+    if (isset($_POST['frmConfirmEmailReinit'])) {
+        $userController->sendMailConfirmUser();
+    }
+
+    // réinitialisation de mot de passe
+    if (isset($_POST['frmReinit'])) {
+        $userController->reinitPassword();
+    }
 ?>

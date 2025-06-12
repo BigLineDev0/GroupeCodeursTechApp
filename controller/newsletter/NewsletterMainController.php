@@ -26,7 +26,7 @@
         
         // envoi mail groupé 
         foreach ($listeNewsletters as $newsletter) {
-            $newsletterController->sendMessageNewsletter($newsletter['email'], $message);
+            $newsletterController->sendMessageMail($newsletter['email'], $message);
         }
 
         $messageSucess = "Message envoyé avec succès.";

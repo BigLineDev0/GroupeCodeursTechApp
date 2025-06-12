@@ -15,7 +15,7 @@
             </li>
             <li>
                 <ul class="nav nav-profile">
-                    <li><a href="javascript:;"><i class="fa fa-cog"></i> Paramètres</a></li>
+                    <li><a href="logout"><i class="fa fa-sign-out-alt"></i> Se décconecter</a></li>
                 </ul>
             </li>
         </ul>
@@ -23,7 +23,7 @@
             
             <!-- Dashboard -->
             <li class="has-sub active">
-                <a href="javascript:;">
+                <a href="admin">
                     <i class="fa fa-th-large"></i>
                     <span>Tableau de bord</span>
                 </a>
@@ -31,7 +31,7 @@
 
             <!-- Profil -->
             <li class="has-sub">
-                <a href="profil">
+                <a href="#">
                     <i class="fa fa-user-circle"></i>
                     <span>Profil</span>
                 </a>

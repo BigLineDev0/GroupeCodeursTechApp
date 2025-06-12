@@ -19,6 +19,8 @@ RewriteRule ^listeNewsletter$ view/pages/admin/newsletter/liste.php
 
 # User
 RewriteRule ^listeUser$ view/pages/admin/user/liste.php
+RewriteRule ^reinitEmail$ view/pages/vitrine/reinitEmail.php
+RewriteRule ^reinit$ view/pages/vitrine/reinit.php
 
 # Profil
 RewriteRule ^profil$ view/pages/admin/profil/profil.php

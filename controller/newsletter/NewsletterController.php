@@ -3,7 +3,6 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
-session_start();
 require_once("../../model/NewsletterRepository.php");
 require_once('../../vendor/autoload.php');
 
@@ -66,8 +65,8 @@ class NewsletterController
     }
 
     // Permet d'envoyer un mail aux abonnés à notre newsletter
-        function sendMessageNewsletter($email, $message)
-        {
+    function sendMessageMail($email, $message)
+    {
             $mail = new PHPMailer(true);
 
             try {
@@ -99,5 +98,5 @@ class NewsletterController
                 echo "erreur lors de l'envoi de l'email {$mail->ErrorInfo}";
             }
 
-        }
+    }
 }

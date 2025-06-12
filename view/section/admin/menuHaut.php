@@ -2,7 +2,7 @@
     <div id="header" class="header navbar-default">
        
         <div class="navbar-header">
-            <a href="home" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
+            <a href="admin" class="navbar-brand"><span class="navbar-logo"></span> <b>Groupe</b> Codeurs</a>
             <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -14,7 +14,7 @@
             <li class="navbar-form">
                 <form action="" method="POST" name="search">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter keyword" />
+                        <input type="text" class="form-control" placeholder="Rechercher..." />
                         <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
                     </div>
                 </form>

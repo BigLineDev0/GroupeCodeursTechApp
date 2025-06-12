@@ -4,7 +4,7 @@ require_once('DBRepository.php');
 class UserRepository extends DBRepository
 {
     // Permet de créer un compte utilisateur
-    public function register($nom, $adresse, $telephone, $photo, $email, $password,	$role, $createdBy)
+    public function register($nom, $adresse, $telephone, $photo, $email, $password, $role, $createdBy)
     {
         $sql = "INSERT INTO users (nom, adresse, telephone, photo, email, password, role, etat, created_at, created_by)
                 VALUES (:nom, :adresse, :telephone, :photo, :email, :password, :role, default, NOW(), :created_by)";
@@ -219,6 +219,25 @@ class UserRepository extends DBRepository
 
         } catch (PDOException $error) {
             error_log("Erreur lors de la suppression définitivement de l'utilisateur d'id $id" . $error->getMessage());
+            throw $error;
+        }
+    }
+
+    // Modification du mot de passe
+    public function updatePassword($id, $password)
+    {
+        $sql = "UPDATE users SET password = :password, updated_at = NOW() WHERE id = :id";
+
+        try {
+            
+            $statement = $this->db->prepare($sql);
+            $statement->execute([
+                'password' => $password,
+                'id' => $id
+            ]);
+            return $statement->rowCount() > 0;
+        } catch (PDOException $error) {
+            error_log("Erreur lors de la modification du mot de passe de l'utilisateur d'id $id : " . $error->getMessage());
             throw $error;
         }
     }
